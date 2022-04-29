@@ -26,7 +26,7 @@ comp_dire:
 
 comp_sultans: 
 	cd ../sourcecode/rtl/VFiles/;
-	vcs name1.v name2.v name1_tb.v -kdb +vcs+fsdbon
+	vcs sultans_of_swing.v ../eric_clapton/reg4.v ../../../tb/VFiles/sultans_of_swing/sultans_of_swing_tb.v  -kdb +vcs+fsdbon
 	cd current_dir 
 
 run:
