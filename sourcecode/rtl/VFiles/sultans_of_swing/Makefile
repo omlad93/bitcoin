@@ -8,6 +8,8 @@ clean:
 clean_skip_rc:
 	\rm -rf simv* csrc* *.log *.fsdb 	  *.key verdi_config_file verdiLog *.conf
 
+no_wave:clean_skip_rc comp run
+
 comp:	sultan_full
 
 sultan_block: 
