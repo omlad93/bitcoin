@@ -2,42 +2,37 @@ mkfile_path := $(abspath $(lastword $(MAKEFILE_LIST)))
 current_dir := $(notdir $(patsubst %/,%,$(dir $(mkfile_path))))
 
 
-# Clean, Compile, Run and open Verdi
-all:	
-	clean comp run waveverdi
+# From Scratch
+all: clean comp run waveverdi
 
-# Remove Simulation files
+# Clean Simulation Files
 clean:
-	\rm -rf simv* csrc* *.log *.fsdb *.rc *.key verdi_config_file verdiLog *.conf
+	rm -rf simv* csrc* *.log *.fsdb *.rc *.key verdi_config_file verdiLog *.conf
 
-# Compile block & dependent bocks & TestBench
-comp:
+# Compile Block & Testbench
+comp: 
 	vcs sultans_of_swing.v ../eric_clapton/reg4.v ../../../tb/VFiles/sultans_of_swing/sultans_of_swing_tb.v  -kdb +vcs+fsdbon
 
-# Run simulation
-run:
+# Run Simulation
+run: 
 	qrsh -V -cwd -b y -q sim_light ./simv
 
-# Open Verdi
-waveverdi:
+# Show Waves via Verdi
+waveverdi: 
 	verdi -ssf novas.fsdb
 
-#
-# Modifications
-#
+# Clean but leave .rc files (for saving signals)
+clean_skip_rc: 
+	rm -rf simv* csrc* *.log *.fsdb *.key verdi_config_file verdiLog *.conf
 
-# Like all but leaves signals.rc from previous run
-tb:
-	clean_skip_rc comp run waveverdi
+# All version for usingh `clean_skip_rc`
+tb: clean_skip_rc comp run waveverdi
 
-#like comp but only for block, no TestBench
+# Compile Block (no Testbench)
 block_only: 
 	vcs sultans_of_swing.v ../eric_clapton/reg4.v  
 
-# Like tb but without opening verdi (Usefull if TestBench has prints)
-print:
-	clean_skip_rc comp run
+# Run Simulation (no Verdi): Usefull if Testbench has prints
+print: clean_skip_rc comp run
 
-# Clean all simulation files execpt *.rc (saving signals.rc fot tb_bench)
-clean_skip_rc: 
-	\rm -rf simv* csrc* *.log *.fsdb 	  *.key verdi_config_file verdiLog *.conf
+
