@@ -4,7 +4,7 @@ module sultans_of_swing_tb;
     reg [3:0] A_in;
     reg [3:0] B_in;
     reg [3:0] C_in;
-
+    integer tick;
     reg clk = 1'b1;    
     reg reset;
 
@@ -18,15 +18,6 @@ module sultans_of_swing_tb;
     reg [3:0] AND_e;      //Expected Result
 
 
-
-
-// Expected Behavioural:
-//      A_out[t]     =      A_in[t-1]
-//      B_out[t]     =      B_in[t-1]
-//      AND_out[t]   =      (A_in[t-1] ^ B_in[t-1]) & (C_in)
-//      
-//        
-
 //Test-bench:
     sultans_of_swing UUT (
                             .Ai(A_in), 
@@ -38,10 +29,13 @@ module sultans_of_swing_tb;
                             .Bo(B_out),
                             .ANDo(AND_out)
     );
-
     // our clock period
     // this is just an example for a period, insignificant at the moment.
-	always #1 clk = ~clk; 
+	always #1 begin
+        clk = ~clk; 
+        tick = (clk) ? tick + 1 : tick;
+    end 
+
     always @(posedge clk) begin : expected
         if (reset) begin
             A_e <= 4'b0; 
@@ -52,14 +46,25 @@ module sultans_of_swing_tb;
             B_e <= B_in;
             AND_e <= (A_in ^ B_in) & (C_in);
         end
-        $display("| $time | A   out |   %b   |   %b   |  %b  |",A_e,A_out,A_e==A_out);
-        $display("| $time | B   out |   %b   |   %b   |  %b  |",B_e,B_out, B_e==B_out);
-        $display("| $time | AND out |   %b   |   %b   |  %b  |",AND_e,AND_out, AND_e==AND_out);
-
+        if (tick > 0) begin
+            $display("| %5d | A    out |   %b   |   %b   | %b |",tick,A_e,A_out,A_e==A_out);
+            $display("| %5d | B    out |   %b   |   %b   | %b |",tick,B_e,B_out, B_e==B_out);
+            $display("| %5d | AND  out |   %b   |   %b   | %b |",tick,AND_e,AND_out, AND_e==AND_out);
+            $display("|-------|----------|----------|----------|---|");
+            if ((A_e != A_out) | (B_e != B_out ) | (AND_e != AND_out)) begin
+                 $display("\n\nERROR:");
+                 $display("\tCanceled Simulation due to mismatch between expectation and actual result\n\n");
+                 $finish;
+            end
+        end
     end
 
-    initial begin
-        $display("| Time |  Signal  | Expected | Computed | V |");
+    initial begin       
+        $display("\n\n TestBench for Sultan Of Swing:\n");
+        $display("| Cycle |  Signal  | Expected | Computed | V |");
+        $display("|-------|----------|----------|----------|---|");
+
+        tick    = 0;
         A_in    = 4'b1111;
         B_in    = 4'b1111;
         C_in    = 4'b1111;
@@ -76,6 +81,22 @@ module sultans_of_swing_tb;
         A_in    = 4'b0011;
         B_in    = 4'b0110;
         C_in    = 4'b0001;
+        #5.5
+
+        A_in    = 4'b1011;
+        B_in    = 4'b0111;
+        C_in    = 4'b1100;
+        #5.5
+
+        A_in    = 4'b1001;
+        B_in    = 4'b0111;
+        C_in    = 4'b0000;
+        #5.5
+        
+        A_in    = 4'b1111;
+        B_in    = 4'b0000;
+        C_in    = 4'b1111;
+        #5.5
 
         A_in    = 4'b1111;
         B_in    = 4'b0000;
@@ -84,7 +105,9 @@ module sultans_of_swing_tb;
         reset = 1'b1;
 
         /////////////
-
+        $display("\n\nSuccess:");
+        $display("\tTestbench Finshed Successfully\n\n");
+        $display("\n\n");
         $finish;
     end
 
