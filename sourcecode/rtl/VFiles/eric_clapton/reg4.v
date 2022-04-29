@@ -10,15 +10,9 @@ module reg4(
     always @(posedge clk)
         begin
             if (reset)
-                q = 0;
+                q <= 4'b0;
             else
-                q = d;
+                q <= d;
         end
-
-
-
-
-
-
 
 endmodule
