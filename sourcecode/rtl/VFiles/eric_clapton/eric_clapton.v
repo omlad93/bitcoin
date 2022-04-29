@@ -7,18 +7,23 @@ module eric_clapton(
     input wire reset,
     output reg Yout);
 
+    wire  [3:0] regA_output;
+    wire  [3:0] regC_output;
+    wire [1:0] t;
+    wire [3:0] q;
+    wire [1:0] q_Bar;
+    wire mux_assign_out;
+    wire [3:0] mux_assign_in;
+    
+    not (q_Bar, q);
+    assign mux_assign_in = {1, 0, t[1], t[0]};
+    reg4 regA (.clk(clk), .reset(reset), .d(A_e), .q(regA_output));
+    reg4 regB (.clk(clk), .reset(reset), .d(B_e), .q(q));
+    reg4 regC (.clk(clk), .reset(reset), .d(C_e), .q(q));
+    reg reg_out (.clk(clk), .reset(reset), .d(m), .q(Yout));
 
-
-
-
-
-
-
-
-
-
-
-
-
+    mux4to1_always mux4to1_always (.f(t[0]), .a(regA_output), .sel(q[1:0]));
+    mux4to1_primitives mux4to1_primitives (.f(t[1]), .a(regC_output), .sel(q[3:2]));
+    mux4to1_assign mux4to1_assign (.f(mux_assign_out), .a(mux_assign_in), .sel(q_Bar));
 
 endmodule
