@@ -16,7 +16,7 @@ comp_wembley:
 
 comp_eric: 
 	cd ../sourcecode/rtl/VFiles/eric_clapton
-	vcs eric_clapton.v mux2to1_always.v mux2to1_assign.v mux2to1_primitives.v mux4to1_always.v mux4to1_assign.v mux4to1_primitives.v reg4.v eric_clapton_tb.v -kdb +vcs+fsdbon
+	vcs eric_clapton.v mux2to1_always.v mux2to1_assign.v mux2to1_primitives.v mux4to1_always.v mux4to1_assign.v mux4to1_primitives.v reg4.v reg1.v eric_clapton_tb.v -kdb +vcs+fsdbon
 	cd current_dir
 
 comp_dire:
