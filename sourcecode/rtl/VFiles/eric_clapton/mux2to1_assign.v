@@ -6,6 +6,6 @@ module mux2to1_assign(f ,a, sel);
 	input [1:0] a;
 	input sel;
 
-	assign f = (s)? a[1] : a[0];
+	assign f = (sel)? a[1] : a[0];
 
 endmodule
