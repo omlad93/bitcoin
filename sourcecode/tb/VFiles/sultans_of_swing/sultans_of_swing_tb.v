@@ -71,38 +71,70 @@ module sultans_of_swing_tb;
         reset   = 1'b1;
         #2
         reset = 1'b0;
+        //Staring
         #2.5
-
+        
+        //Vec1
         A_in    = 4'b0000;
         B_in    = 4'b0000;
         C_in    = 4'b0000;
         #5.5
 
+        //Vec2
         A_in    = 4'b0011;
         B_in    = 4'b0110;
         C_in    = 4'b0001;
         #5.5
 
+        //Vec3
         A_in    = 4'b1011;
         B_in    = 4'b0111;
         C_in    = 4'b1100;
         #5.5
 
+        //Vec4
         A_in    = 4'b1001;
         B_in    = 4'b0111;
         C_in    = 4'b0000;
         #5.5
         
+        //Vec5
         A_in    = 4'b1111;
         B_in    = 4'b0000;
         C_in    = 4'b1111;
         #5.5
 
+        //Vec6
         A_in    = 4'b1111;
         B_in    = 4'b0000;
         C_in    = 4'b0110;
         #5.5
+
+        //Vec7
+        A_in    = 4'b0000;
+        B_in    = 4'b0000;
+        C_in    = 4'b1111;
+        #5.5
+
+        //Vec8
+        A_in    = 4'b0101;
+        B_in    = 4'b1010;
+        C_in    = 4'b1111;
+        #5.5
+
+        //Vec9
+        A_in    = 4'b0101;
+        B_in    = 4'b1010;
+        C_in    = 4'b0011;
+        #5.5
+
+        //Vec10
+        A_in    = 4'b1110;
+        B_in    = 4'b0011;
+        C_in    = 4'b1011;
+        #5.5
         reset = 1'b1;
+        #2
 
         /////////////
         $display("\n\nSuccess:");
