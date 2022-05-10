@@ -21,7 +21,7 @@ comp_eric:
 
 comp_dire:
 	cd ../sourcecode/rtl/VFiles/dire_straits;
-	vcs name1.v name2.v name1_tb.v -kdb +vcs+fsdbon
+	vcs dire_straits.v  ../../../tb/VFiles/dire_straits/dire_straits_tb.v  -kdb +vcs+fsdbon
 	cd current_dir
 
 comp_sultans: 
