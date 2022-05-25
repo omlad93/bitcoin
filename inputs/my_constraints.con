@@ -1,0 +1,30 @@
+# Clear Previous Runs
+reset_design
+
+# -------------------------------------------------
+# Clock Generation
+# -------------------------------------------------
+create_clock -name "clk" -period 1 [get_ports clk]
+Input delay     0.1                [all_clocks]
+output delay    0.1                [all_clocks]
+
+# Values to Consider: Below
+set_clock_uncertainty   0.01       [all_clocks]
+set_clock_transition    0.03       [all_clocks]
+# -------------------------------------------------
+
+# -------------------------------------------------
+# Design Rules ?
+# -------------------------------------------------
+ # set_max_capacitance  < TODO ? >
+ # set_min_capacitance  < TODO ? >
+ # set_max_transition   < TODO ? >
+ # set_max_fanout       < TODO ? >
+# -------------------------------------------------
+
+# -------------------------------------------------
+# False Pathes ?
+# -------------------------------------------------
+ # set_false_path -through [get_pins eric_clapton/???] 
+ # set_false_path -through [get_pins eric_clapton/???]
+# -------------------------------------------------
