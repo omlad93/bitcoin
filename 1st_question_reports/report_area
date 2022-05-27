@@ -1,0 +1,31 @@
+ 
+****************************************
+Report : area
+Design : wembley_88
+Version: S-2021.06-SP5
+Date   : Fri May 27 13:38:11 2022
+****************************************
+
+Library(s) Used:
+
+    saed32lvt_ss0p75v125c (File: /project/advvlsi/users/omri/ws/pro_1/project_root/libraries/syn_libs/saed32lvt_ss0p75v125c.db)
+    saed32rvt_ss0p75v125c (File: /project/advvlsi/users/omri/ws/pro_1/project_root/libraries/syn_libs/saed32rvt_ss0p75v125c.db)
+
+Number of ports:                          165
+Number of nets:                           261
+Number of cells:                          109
+Number of combinational cells:             57
+Number of sequential cells:                25
+Number of macros/black boxes:               0
+Number of buf/inv:                         20
+Number of references:                       3
+
+Combinational area:                153.248834
+Buf/Inv area:                       37.613313
+Noncombinational area:             174.596929
+Macro/Black Box area:                0.000000
+Net Interconnect area:              34.956699
+
+Total cell area:                   327.845763
+Total area:                        362.802462
+1

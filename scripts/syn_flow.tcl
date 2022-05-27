@@ -32,8 +32,8 @@ report_timing -max_paths 20 -delay_type max  > ../../reports/report_timing_befor
 source ../../inputs/my_constraints.con
 report_timing -max_paths 20 -delay_type max  > ../../reports/report_timing_after_con_max
 
-#compile_ultra
-compile_ultra -no_autoungroup
+compile_ultra
+#compile_ultra -no_autoungroup
 
 report_timing -max_paths 20 -delay_type max > ../../reports/report_timing_after_compile_ultra
 report_constraint -all > ../../reports/report_constraint

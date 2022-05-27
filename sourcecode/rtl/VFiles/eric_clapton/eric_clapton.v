@@ -30,9 +30,9 @@ module eric_clapton(
     reg1 reg_out (.clk(clk), .reset(reset), .d(mux_assign_out), .q(Yout_wire));
 
     //logic operations
-    mux4to1_always mux4to1_always (.f(t[0]), .a(regA_output), .sel(q[1:0]));
+    mux4to1_always mux4to1_always (.f(t[0]), .a(regA_output), .sel(q[1:0]));             // Positive: RegA[q]->t[0]. if q=b'11
     mux4to1_primitives mux4to1_primitives (.f(t[1]), .a(regC_output), .sel(q[3:2]));
-    mux4to1_assign mux4to1_assign (.f(mux_assign_out), .a(mux_assign_in), .sel(q_Bar));
+    mux4to1_assign mux4to1_assign (.f(mux_assign_out), .a(mux_assign_in), .sel(q_Bar)); // Negative: choses t[0] when q_bar = b'00
 
     always @(*) begin
         Yout = Yout_wire;

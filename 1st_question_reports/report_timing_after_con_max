@@ -8,7 +8,7 @@ Report : timing
         -max_paths 20
 Design : wembley_88
 Version: S-2021.06-SP5
-Date   : Fri May 27 13:51:39 2022
+Date   : Fri May 27 13:37:49 2022
 ****************************************
 
 Operating Conditions: ss0p75v125c   Library: saed32hvt_ss0p75v125c
@@ -38,9 +38,9 @@ Wire Load Model Mode: enclosed
   sultan/Ao[0] (sultans_of_swing)                         0.00       0.00 r
   dire/A_out[0] (dire_straits)                            0.00       0.00 r
   dire/add_8/A_0 (*ADD_UNS_OP_4_4_5)                      0.00       0.00 r
-  dire/add_8/*cell*6240/A[0] (DW01_add_width5)            0.00       0.00 r
+  dire/add_8/*cell*4722/A[0] (DW01_add_width5)            0.00       0.00 r
   ...
-  dire/add_8/*cell*6240/SUM[4] (DW01_add_width5)          0.04       0.04 r
+  dire/add_8/*cell*4722/SUM[4] (DW01_add_width5)          0.04       0.04 r
   dire/add_8/Z_4 (*ADD_UNS_OP_4_4_5)                      0.00       0.04 r
   dire/C17/Z (GTECH_XOR2)                                 0.11       0.15 r
   dire/B_e[3] (dire_straits)                              0.00       0.15 r
@@ -87,9 +87,9 @@ Wire Load Model Mode: enclosed
   sultan/Ao[0] (sultans_of_swing)                         0.00       0.00 r
   dire/A_out[0] (dire_straits)                            0.00       0.00 r
   dire/add_8/A_0 (*ADD_UNS_OP_4_4_5)                      0.00       0.00 r
-  dire/add_8/*cell*6240/A[0] (DW01_add_width5)            0.00       0.00 r
+  dire/add_8/*cell*4722/A[0] (DW01_add_width5)            0.00       0.00 r
   ...
-  dire/add_8/*cell*6240/SUM[4] (DW01_add_width5)          0.04       0.04 r
+  dire/add_8/*cell*4722/SUM[4] (DW01_add_width5)          0.04       0.04 r
   dire/add_8/Z_4 (*ADD_UNS_OP_4_4_5)                      0.00       0.04 r
   dire/C16/Z (GTECH_XOR2)                                 0.11       0.15 r
   dire/B_e[2] (dire_straits)                              0.00       0.15 r
@@ -136,9 +136,9 @@ Wire Load Model Mode: enclosed
   sultan/Ao[0] (sultans_of_swing)                         0.00       0.00 r
   dire/A_out[0] (dire_straits)                            0.00       0.00 r
   dire/add_8/A_0 (*ADD_UNS_OP_4_4_5)                      0.00       0.00 r
-  dire/add_8/*cell*6240/A[0] (DW01_add_width5)            0.00       0.00 r
+  dire/add_8/*cell*4722/A[0] (DW01_add_width5)            0.00       0.00 r
   ...
-  dire/add_8/*cell*6240/SUM[4] (DW01_add_width5)          0.04       0.04 r
+  dire/add_8/*cell*4722/SUM[4] (DW01_add_width5)          0.04       0.04 r
   dire/add_8/Z_4 (*ADD_UNS_OP_4_4_5)                      0.00       0.04 r
   dire/C15/Z (GTECH_XOR2)                                 0.11       0.15 r
   dire/B_e[1] (dire_straits)                              0.00       0.15 r
@@ -185,9 +185,9 @@ Wire Load Model Mode: enclosed
   sultan/Ao[0] (sultans_of_swing)                         0.00       0.00 r
   dire/A_out[0] (dire_straits)                            0.00       0.00 r
   dire/add_8/A_0 (*ADD_UNS_OP_4_4_5)                      0.00       0.00 r
-  dire/add_8/*cell*6240/A[0] (DW01_add_width5)            0.00       0.00 r
+  dire/add_8/*cell*4722/A[0] (DW01_add_width5)            0.00       0.00 r
   ...
-  dire/add_8/*cell*6240/SUM[4] (DW01_add_width5)          0.04       0.04 r
+  dire/add_8/*cell*4722/SUM[4] (DW01_add_width5)          0.04       0.04 r
   dire/add_8/Z_4 (*ADD_UNS_OP_4_4_5)                      0.00       0.04 r
   dire/C14/Z (GTECH_XOR2)                                 0.11       0.15 r
   dire/B_e[0] (dire_straits)                              0.00       0.15 r
@@ -413,9 +413,9 @@ Wire Load Model Mode: enclosed
   sultan/Ao[0] (sultans_of_swing)                         0.00       0.00 r
   dire/A_out[0] (dire_straits)                            0.00       0.00 r
   dire/add_8/A_0 (*ADD_UNS_OP_4_4_5)                      0.00       0.00 r
-  dire/add_8/*cell*6240/A[0] (DW01_add_width5)            0.00       0.00 r
+  dire/add_8/*cell*4722/A[0] (DW01_add_width5)            0.00       0.00 r
   ...
-  dire/add_8/*cell*6240/SUM[3] (DW01_add_width5)          0.04       0.04 r
+  dire/add_8/*cell*4722/SUM[3] (DW01_add_width5)          0.04       0.04 r
   dire/add_8/Z_3 (*ADD_UNS_OP_4_4_5)                      0.00       0.04 r
   dire/A_e[3] (dire_straits)                              0.00       0.04 r
   eric/A_e[3] (eric_clapton)                              0.00       0.04 r
@@ -460,9 +460,9 @@ Wire Load Model Mode: enclosed
   sultan/Ao[0] (sultans_of_swing)                         0.00       0.00 r
   dire/A_out[0] (dire_straits)                            0.00       0.00 r
   dire/add_8/A_0 (*ADD_UNS_OP_4_4_5)                      0.00       0.00 r
-  dire/add_8/*cell*6240/A[0] (DW01_add_width5)            0.00       0.00 r
+  dire/add_8/*cell*4722/A[0] (DW01_add_width5)            0.00       0.00 r
   ...
-  dire/add_8/*cell*6240/SUM[2] (DW01_add_width5)          0.03       0.03 r
+  dire/add_8/*cell*4722/SUM[2] (DW01_add_width5)          0.03       0.03 r
   dire/add_8/Z_2 (*ADD_UNS_OP_4_4_5)                      0.00       0.03 r
   dire/A_e[2] (dire_straits)                              0.00       0.03 r
   eric/A_e[2] (eric_clapton)                              0.00       0.03 r
@@ -507,9 +507,9 @@ Wire Load Model Mode: enclosed
   sultan/Ao[0] (sultans_of_swing)                         0.00       0.00 r
   dire/A_out[0] (dire_straits)                            0.00       0.00 r
   dire/add_8/A_0 (*ADD_UNS_OP_4_4_5)                      0.00       0.00 r
-  dire/add_8/*cell*6240/A[0] (DW01_add_width5)            0.00       0.00 r
+  dire/add_8/*cell*4722/A[0] (DW01_add_width5)            0.00       0.00 r
   ...
-  dire/add_8/*cell*6240/SUM[1] (DW01_add_width5)          0.03       0.03 r
+  dire/add_8/*cell*4722/SUM[1] (DW01_add_width5)          0.03       0.03 r
   dire/add_8/Z_1 (*ADD_UNS_OP_4_4_5)                      0.00       0.03 r
   dire/A_e[1] (dire_straits)                              0.00       0.03 r
   eric/A_e[1] (eric_clapton)                              0.00       0.03 r
@@ -553,9 +553,9 @@ Wire Load Model Mode: enclosed
   sultan/Ao[0] (sultans_of_swing)                         0.00       0.00 r
   dire/A_out[0] (dire_straits)                            0.00       0.00 r
   dire/add_8/A_0 (*ADD_UNS_OP_4_4_5)                      0.00       0.00 r
-  dire/add_8/*cell*6240/A[0] (DW01_add_width5)            0.00       0.00 r
+  dire/add_8/*cell*4722/A[0] (DW01_add_width5)            0.00       0.00 r
   ...
-  dire/add_8/*cell*6240/SUM[0] (DW01_add_width5)          0.02       0.02 r
+  dire/add_8/*cell*4722/SUM[0] (DW01_add_width5)          0.02       0.02 r
   dire/add_8/Z_0 (*ADD_UNS_OP_4_4_5)                      0.00       0.02 r
   dire/A_e[0] (dire_straits)                              0.00       0.02 r
   eric/A_e[0] (eric_clapton)                              0.00       0.02 r

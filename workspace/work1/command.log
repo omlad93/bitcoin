@@ -1,7 +1,7 @@
 #@ # 
 #@ # Running dc_shell Version S-2021.06-SP5 for linux64 -- Jan 11, 2022
-#@ # Date:   Wed May 25 13:58:29 2022
-#@ # Run by: omri@micron1.eng.tau.ac.il
+#@ # Date:   Fri May 27 13:30:30 2022
+#@ # Run by: omri@micron4.eng.tau.ac.il
 #@ 
 
 source /tools/synopsys/syn/S-2021.06-SP5/admin/setup/.synopsys_dc.setup
@@ -46592,13 +46592,13 @@ source ../../scripts/syn_flow.tcl
 #@ # -------------------------------------------------
 #@ # Clock Generation
 #@ # -------------------------------------------------
-#@ create_clock -name "clk" -period 1 [get_ports clk]
-#@ Input delay     0.1                [all_clocks]
-#@ output delay    0.1                [all_clocks]
+#@ create_clock -name "clk" -period 0.8 [get_ports clk]
+#@ Input delay     0.1                  [all_clocks]
+#@ output delay    0.1                  [all_clocks]
 #@ 
-#@ # Values to Consider: Below
-#@ set_clock_uncertainty   0.01       [all_clocks]
-#@ set_clock_transition    0.03       [all_clocks]
+#@ # # Values to Consider: Below
+#@ set_clock_uncertainty   0.04         [all_clocks] 
+#@ set_clock_transition    0.03         [all_clocks]
 #@ # -------------------------------------------------
 #@ 
 #@ # -------------------------------------------------
@@ -46611,10 +46611,12 @@ source ../../scripts/syn_flow.tcl
 #@ # -------------------------------------------------
 #@ 
 #@ # -------------------------------------------------
-#@ # False Pathes ?
+#@ # False Pathes
 #@ # -------------------------------------------------
-#@ # set_false_path -through [get_pins eric_clapton/???] 
-#@ # set_false_path -through [get_pins eric_clapton/???]
+#@ set_false_path -from [get_pins eric/regA/q_reg[0]/D] 
+#@ set_false_path -from [get_pins eric/regA/q_reg[1]/D] 
+#@ set_false_path -from [get_pins eric/regA/q_reg[2]/D] 
+#@ #  set_false_path -from [get_pins eric_clapton/???]
 #@ # -------------------------------------------------
 #@ # -- End source ../../inputs/my_constraints.con
 
@@ -46633,17 +46635,456 @@ source ../../scripts/syn_flow.tcl
 #@ 
 #@ # -- End source ../../scripts/syn_flow.tcl
 
-change_selection [get_cells eric/mux4to1_assign]
-change_selection [get_cells eric/mux4to1_primitives]
-change_selection [get_cells eric/mux4to1_always]
-change_selection [get_cells eric/reg_out]
-change_selection [get_cells eric/regC]
+source ../../scripts/syn_flow.tcl
+#@ # -- Starting source ../../scripts/syn_flow.tcl
+
+#@ # after you invoked dc_shell in terminal, with: module_load SYN (then enter, and then) dc_shell (then again enter)
+#@ remove_design -all
+#@ reset_design
+#@ 
+#@ # i assume the tool might crush, so here the syn libs is sourced for your next run.
+#@ source ../../scripts/syn_libs_setup.tcl
+#@ # -- Starting source ../../scripts/syn_libs_setup.tcl
+
+#@ set ADDITIONAL_SEARCH_PATH   "/tools/synopsys/lib/SAED32_EDK/lib/stdcell_hvt/db_nldm 
+#@ 			      /tools/synopsys/lib/SAED32_EDK/tech/star_rcxt
+#@ 	 	   	      /tools/synopsys/lib/SAED32_EDK/tech/milkyway
+#@ 			      /tools/synopsys/lib/SAED32_EDK/lib/stdcell_hvt/ndm"    ;#  Directories containing logic libraries
+#@ 
+#@ 
+#@ set my_target_libs [ls ../../libraries/syn_libs/*.db]
+#@ set link_library $my_target_libs
+#@ set target_library $my_target_libs
+#@ 
+#@ 
+#@ 
+#@ 
+#@ 
+#@ # -- End source ../../scripts/syn_libs_setup.tcl
+
+#@ 
+#@ #the following command does the compilation
+#@ #make sure you run it in, that you are in workspace/work1 for example or workspace/work2 ... 
+#@ analyze -format sverilog  " ../../sourcecode/rtl/VFiles/eric_clapton/reg1.v
+#@ ../../sourcecode/rtl/VFiles/eric_clapton/reg4.v
+#@ ../../sourcecode/rtl/VFiles/eric_clapton/mux2to1_assign.v
+#@ ../../sourcecode/rtl/VFiles/eric_clapton/mux4to1_always.v
+#@ ../../sourcecode/rtl/VFiles/eric_clapton/mux4to1_assign.v
+#@ ../../sourcecode/rtl/VFiles/eric_clapton/mux4to1_primitives.v
+#@ ../../sourcecode/rtl/VFiles/eric_clapton/eric_clapton.v
+#@ ../../sourcecode/rtl/VFiles/eric_clapton/mux2to1_primitives.v
+#@ ../../sourcecode/rtl/VFiles/eric_clapton/mux2to1_always.v
+#@ ../../sourcecode/rtl/VFiles/sultans_of_swing/sultans_of_swing.v
+#@ ../../sourcecode/rtl/VFiles/dire_straits/dire_straits.v
+#@ ../../sourcecode/rtl/VFiles/wembley_88/wembley_88.v"
+#@ 
+#@ elaborate wembley_88
+#@ current_design
+#@ link
+#@ write_file -hierarchy -format ddc -out unmapped/wembley_88.ddc
+#@ list_designs
+#@ list_libs
+#@ check_design > ../../reports/check_design
+#@ 
+#@ report_timing -max_paths 20 -delay_type max  > ../../reports/report_timing_before_con_max
+#@ source ../../inputs/my_constraints.con
+#@ # -- Starting source ../../inputs/my_constraints.con
+
+#@ # Clear Previous Runs
+#@ reset_design
+#@ 
+#@ # -------------------------------------------------
+#@ # Clock Generation
+#@ # -------------------------------------------------
+#@ create_clock -name "clk" -period 0.8 [get_ports clk]
+#@ Input delay     0.1                  [all_clocks]
+#@ output delay    0.1                  [all_clocks]
+#@ 
+#@ # # Values to Consider: Below
+#@ set_clock_uncertainty   0.004         [all_clocks] 
+#@ set_clock_transition    0.003         [all_clocks]
+#@ # -------------------------------------------------
+#@ 
+#@ # -------------------------------------------------
+#@ # Design Rules ?
+#@ # -------------------------------------------------
+#@ # set_max_capacitance  < TODO ? >
+#@ # set_min_capacitance  < TODO ? >
+#@ # set_max_transition   < TODO ? >
+#@ # set_max_fanout       < TODO ? >
+#@ # -------------------------------------------------
+#@ 
+#@ # -------------------------------------------------
+#@ # False Pathes
+#@ # -------------------------------------------------
+#@ set_false_path -from [get_pins eric/regA/q_reg[0]/D] 
+#@ set_false_path -from [get_pins eric/regA/q_reg[1]/D] 
+#@ set_false_path -from [get_pins eric/regA/q_reg[2]/D] 
+#@ #  set_false_path -from [get_pins eric_clapton/???]
+#@ # -------------------------------------------------
+#@ # -- End source ../../inputs/my_constraints.con
+
+#@ report_timing -max_paths 20 -delay_type max  > ../../reports/report_timing_after_con_max
+#@ 
+#@ #compile_ultra
+#@ compile_ultra -no_autoungroup
+#@ 
+#@ report_timing -max_paths 20 -delay_type max > ../../reports/report_timing_after_compile_ultra
+#@ report_constraint -all > ../../reports/report_constraint
+#@ report_area > ../../reports/report_area
+#@ 
+#@ write_file -hierarchy -format ddc -output mapped/wembley_88.ddc
+#@ 
+#@ 
+#@ 
+#@ # -- End source ../../scripts/syn_flow.tcl
+
+change_selection [get_cells wembley_88]
+source ../../scripts/syn_flow.tcl
+#@ # -- Starting source ../../scripts/syn_flow.tcl
+
+#@ # after you invoked dc_shell in terminal, with: module_load SYN (then enter, and then) dc_shell (then again enter)
+#@ remove_design -all
+#@ reset_design
+#@ 
+#@ # i assume the tool might crush, so here the syn libs is sourced for your next run.
+#@ source ../../scripts/syn_libs_setup.tcl
+#@ # -- Starting source ../../scripts/syn_libs_setup.tcl
+
+#@ set ADDITIONAL_SEARCH_PATH   "/tools/synopsys/lib/SAED32_EDK/lib/stdcell_hvt/db_nldm 
+#@ 			      /tools/synopsys/lib/SAED32_EDK/tech/star_rcxt
+#@ 	 	   	      /tools/synopsys/lib/SAED32_EDK/tech/milkyway
+#@ 			      /tools/synopsys/lib/SAED32_EDK/lib/stdcell_hvt/ndm"    ;#  Directories containing logic libraries
+#@ 
+#@ 
+#@ set my_target_libs [ls ../../libraries/syn_libs/*.db]
+#@ set link_library $my_target_libs
+#@ set target_library $my_target_libs
+#@ 
+#@ 
+#@ 
+#@ 
+#@ 
+#@ # -- End source ../../scripts/syn_libs_setup.tcl
+
+#@ 
+#@ #the following command does the compilation
+#@ #make sure you run it in, that you are in workspace/work1 for example or workspace/work2 ... 
+#@ analyze -format sverilog  " ../../sourcecode/rtl/VFiles/eric_clapton/reg1.v
+#@ ../../sourcecode/rtl/VFiles/eric_clapton/reg4.v
+#@ ../../sourcecode/rtl/VFiles/eric_clapton/mux2to1_assign.v
+#@ ../../sourcecode/rtl/VFiles/eric_clapton/mux4to1_always.v
+#@ ../../sourcecode/rtl/VFiles/eric_clapton/mux4to1_assign.v
+#@ ../../sourcecode/rtl/VFiles/eric_clapton/mux4to1_primitives.v
+#@ ../../sourcecode/rtl/VFiles/eric_clapton/eric_clapton.v
+#@ ../../sourcecode/rtl/VFiles/eric_clapton/mux2to1_primitives.v
+#@ ../../sourcecode/rtl/VFiles/eric_clapton/mux2to1_always.v
+#@ ../../sourcecode/rtl/VFiles/sultans_of_swing/sultans_of_swing.v
+#@ ../../sourcecode/rtl/VFiles/dire_straits/dire_straits.v
+#@ ../../sourcecode/rtl/VFiles/wembley_88/wembley_88.v"
+#@ 
+#@ elaborate wembley_88
+#@ current_design
+#@ link
+#@ write_file -hierarchy -format ddc -out unmapped/wembley_88.ddc
+#@ list_designs
+#@ list_libs
+#@ check_design > ../../reports/check_design
+#@ 
+#@ report_timing -max_paths 20 -delay_type max  > ../../reports/report_timing_before_con_max
+#@ source ../../inputs/my_constraints.con
+#@ # -- Starting source ../../inputs/my_constraints.con
+
+#@ # Clear Previous Runs
+#@ reset_design
+#@ 
+#@ # -------------------------------------------------
+#@ # Clock Generation
+#@ # -------------------------------------------------
+#@ create_clock -name "clk" -period 0.8 [get_ports clk]
+#@ Input delay     0.1                  [all_clocks]
+#@ output delay    0.1                  [all_clocks]
+#@ 
+#@ # # Values to Consider: Below
+#@ set_clock_uncertainty   0.004         [all_clocks] 
+#@ set_clock_transition    0.003         [all_clocks]
+#@ # -------------------------------------------------
+#@ 
+#@ # -------------------------------------------------
+#@ # Design Rules ?
+#@ # -------------------------------------------------
+#@ # set_max_capacitance  < TODO ? >
+#@ # set_min_capacitance  < TODO ? >
+#@ # set_max_transition   < TODO ? >
+#@ # set_max_fanout       < TODO ? >
+#@ # -------------------------------------------------
+#@ 
+#@ # -------------------------------------------------
+#@ # False Pathes
+#@ # -------------------------------------------------
+#@ set_false_path -through [get_pins eric/regA/q_reg[0]/D] 
+#@ set_false_path -through [get_pins eric/regA/q_reg[1]/D] 
+#@ set_false_path -through [get_pins eric/regA/q_reg[2]/D] 
+#@ #  set_false_path -from [get_pins eric_clapton/???]
+#@ # -------------------------------------------------
+#@ # -- End source ../../inputs/my_constraints.con
+
+#@ report_timing -max_paths 20 -delay_type max  > ../../reports/report_timing_after_con_max
+#@ 
+#@ #compile_ultra
+#@ compile_ultra -no_autoungroup
+#@ 
+#@ report_timing -max_paths 20 -delay_type max > ../../reports/report_timing_after_compile_ultra
+#@ report_constraint -all > ../../reports/report_constraint
+#@ report_area > ../../reports/report_area
+#@ 
+#@ write_file -hierarchy -format ddc -output mapped/wembley_88.ddc
+#@ 
+#@ 
+#@ 
+#@ # -- End source ../../scripts/syn_flow.tcl
+
+source ../../scripts/syn_flow.tcl
+#@ # -- Starting source ../../scripts/syn_flow.tcl
+
+#@ # after you invoked dc_shell in terminal, with: module_load SYN (then enter, and then) dc_shell (then again enter)
+#@ remove_design -all
+#@ reset_design
+#@ 
+#@ # i assume the tool might crush, so here the syn libs is sourced for your next run.
+#@ source ../../scripts/syn_libs_setup.tcl
+#@ # -- Starting source ../../scripts/syn_libs_setup.tcl
+
+#@ set ADDITIONAL_SEARCH_PATH   "/tools/synopsys/lib/SAED32_EDK/lib/stdcell_hvt/db_nldm 
+#@ 			      /tools/synopsys/lib/SAED32_EDK/tech/star_rcxt
+#@ 	 	   	      /tools/synopsys/lib/SAED32_EDK/tech/milkyway
+#@ 			      /tools/synopsys/lib/SAED32_EDK/lib/stdcell_hvt/ndm"    ;#  Directories containing logic libraries
+#@ 
+#@ 
+#@ set my_target_libs [ls ../../libraries/syn_libs/*.db]
+#@ set link_library $my_target_libs
+#@ set target_library $my_target_libs
+#@ 
+#@ 
+#@ 
+#@ 
+#@ 
+#@ # -- End source ../../scripts/syn_libs_setup.tcl
+
+#@ 
+#@ #the following command does the compilation
+#@ #make sure you run it in, that you are in workspace/work1 for example or workspace/work2 ... 
+#@ analyze -format sverilog  " ../../sourcecode/rtl/VFiles/eric_clapton/reg1.v
+#@ ../../sourcecode/rtl/VFiles/eric_clapton/reg4.v
+#@ ../../sourcecode/rtl/VFiles/eric_clapton/mux2to1_assign.v
+#@ ../../sourcecode/rtl/VFiles/eric_clapton/mux4to1_always.v
+#@ ../../sourcecode/rtl/VFiles/eric_clapton/mux4to1_assign.v
+#@ ../../sourcecode/rtl/VFiles/eric_clapton/mux4to1_primitives.v
+#@ ../../sourcecode/rtl/VFiles/eric_clapton/eric_clapton.v
+#@ ../../sourcecode/rtl/VFiles/eric_clapton/mux2to1_primitives.v
+#@ ../../sourcecode/rtl/VFiles/eric_clapton/mux2to1_always.v
+#@ ../../sourcecode/rtl/VFiles/sultans_of_swing/sultans_of_swing.v
+#@ ../../sourcecode/rtl/VFiles/dire_straits/dire_straits.v
+#@ ../../sourcecode/rtl/VFiles/wembley_88/wembley_88.v"
+#@ 
+#@ elaborate wembley_88
+#@ current_design
+#@ link
+#@ write_file -hierarchy -format ddc -out unmapped/wembley_88.ddc
+#@ list_designs
+#@ list_libs
+#@ check_design > ../../reports/check_design
+#@ 
+#@ report_timing -max_paths 20 -delay_type max  > ../../reports/report_timing_before_con_max
+#@ source ../../inputs/my_constraints.con
+#@ # -- Starting source ../../inputs/my_constraints.con
+
+#@ # Clear Previous Runs
+#@ reset_design
+#@ 
+#@ # -------------------------------------------------
+#@ # Clock Generation
+#@ # -------------------------------------------------
+#@ create_clock -name "clk" -period 0.8 [get_ports clk]
+#@ Input delay     0.1                  [all_clocks]
+#@ output delay    0.1                  [all_clocks]
+#@ 
+#@ # # Values to Consider: Below
+#@ set_clock_uncertainty   0.004         [all_clocks] 
+#@ set_clock_transition    0.003         [all_clocks]
+#@ # -------------------------------------------------
+#@ 
+#@ # -------------------------------------------------
+#@ # Design Rules ?
+#@ # -------------------------------------------------
+#@ # set_max_capacitance  < TODO ? >
+#@ # set_min_capacitance  < TODO ? >
+#@ # set_max_transition   < TODO ? >
+#@ # set_max_fanout       < TODO ? >
+#@ # -------------------------------------------------
+#@ 
+#@ # -------------------------------------------------
+#@ # False Pathes
+#@ # -------------------------------------------------
+#@ set_false_path -through [get_pins eric/regA/q_reg[0]] 
+#@ set_false_path -through [get_pins eric/regA/q_reg[1]] 
+#@ set_false_path -through [get_pins eric/regA/q_reg[2]] 
+#@ #  set_false_path -from [get_pins eric_clapton/???]
+#@ # -------------------------------------------------
+#@ # -- End source ../../inputs/my_constraints.con
+
+#@ report_timing -max_paths 20 -delay_type max  > ../../reports/report_timing_after_con_max
+#@ 
+#@ #compile_ultra
+#@ compile_ultra -no_autoungroup
+#@ 
+#@ report_timing -max_paths 20 -delay_type max > ../../reports/report_timing_after_compile_ultra
+#@ report_constraint -all > ../../reports/report_constraint
+#@ report_area > ../../reports/report_area
+#@ 
+#@ write_file -hierarchy -format ddc -output mapped/wembley_88.ddc
+#@ 
+#@ 
+#@ 
+#@ # -- End source ../../scripts/syn_flow.tcl
+
+change_selection [get_cells eric/regA]
 change_selection [get_cells eric/regB]
 change_selection [get_cells eric/regA]
 change_selection [get_cells eric]
-change_selection [get_cells dire]
-change_selection -remove [get_cells dire]
+change_selection [get_cells eric/regB]
+change_selection [get_cells eric/regA]
+change_selection [get_cells eric]
+change_selection [get_cells eric/regA]
+change_selection [get_cells sultan/regA]
+change_selection [get_cells sultan/regC]
 change_selection [get_cells sultan]
+change_selection [get_cells eric/regA]
+change_selection [get_cells eric/regB]
+change_selection [get_cells eric/regC]
+change_selection [get_cells eric/regA]
+change_selection [get_cells eric/regB]
+change_selection [get_cells {eric/regC eric/regB}]
+change_selection [get_cells eric/regC]
+change_selection [get_cells eric/reg_out]
+change_selection [get_cells eric/regB]
+change_selection [get_cells eric/regC]
+change_selection [get_cells eric/regA]
+change_selection [get_cells eric/regB]
+change_selection [get_cells eric/regA]
+change_selection [get_cells eric/regB]
 gui_set_setting -window [gui_get_current_window -types Schematic -mru] -setting schematic:background_color -value black
 gui_set_setting -window [gui_get_current_window -types Schematic -mru] -setting zoomFitFactor -value 0.0
-change_selection [get_cells sultan]
+change_selection [get_cells eric/regC]
+change_selection [get_cells eric/regB]
+change_selection [get_cells eric/reg_out]
+change_selection [get_cells eric/mux4to1_always]
+change_selection [get_cells eric/mux4to1_primitives]
+change_selection [get_cells eric/mux4to1_assign]
+source ../../scripts/syn_flow.tcl
+#@ # -- Starting source ../../scripts/syn_flow.tcl
+
+#@ # after you invoked dc_shell in terminal, with: module_load SYN (then enter, and then) dc_shell (then again enter)
+#@ remove_design -all
+#@ change_selection -remove [get_s invalid]
+
+#@ reset_design
+#@ 
+#@ # i assume the tool might crush, so here the syn libs is sourced for your next run.
+#@ source ../../scripts/syn_libs_setup.tcl
+#@ # -- Starting source ../../scripts/syn_libs_setup.tcl
+
+#@ set ADDITIONAL_SEARCH_PATH   "/tools/synopsys/lib/SAED32_EDK/lib/stdcell_hvt/db_nldm 
+#@ 			      /tools/synopsys/lib/SAED32_EDK/tech/star_rcxt
+#@ 	 	   	      /tools/synopsys/lib/SAED32_EDK/tech/milkyway
+#@ 			      /tools/synopsys/lib/SAED32_EDK/lib/stdcell_hvt/ndm"    ;#  Directories containing logic libraries
+#@ 
+#@ 
+#@ set my_target_libs [ls ../../libraries/syn_libs/*.db]
+#@ set link_library $my_target_libs
+#@ set target_library $my_target_libs
+#@ 
+#@ 
+#@ 
+#@ 
+#@ 
+#@ # -- End source ../../scripts/syn_libs_setup.tcl
+
+#@ 
+#@ #the following command does the compilation
+#@ #make sure you run it in, that you are in workspace/work1 for example or workspace/work2 ... 
+#@ analyze -format sverilog  " ../../sourcecode/rtl/VFiles/eric_clapton/reg1.v
+#@ ../../sourcecode/rtl/VFiles/eric_clapton/reg4.v
+#@ ../../sourcecode/rtl/VFiles/eric_clapton/mux2to1_assign.v
+#@ ../../sourcecode/rtl/VFiles/eric_clapton/mux4to1_always.v
+#@ ../../sourcecode/rtl/VFiles/eric_clapton/mux4to1_assign.v
+#@ ../../sourcecode/rtl/VFiles/eric_clapton/mux4to1_primitives.v
+#@ ../../sourcecode/rtl/VFiles/eric_clapton/eric_clapton.v
+#@ ../../sourcecode/rtl/VFiles/eric_clapton/mux2to1_primitives.v
+#@ ../../sourcecode/rtl/VFiles/eric_clapton/mux2to1_always.v
+#@ ../../sourcecode/rtl/VFiles/sultans_of_swing/sultans_of_swing.v
+#@ ../../sourcecode/rtl/VFiles/dire_straits/dire_straits.v
+#@ ../../sourcecode/rtl/VFiles/wembley_88/wembley_88.v"
+#@ 
+#@ elaborate wembley_88
+#@ current_design
+#@ link
+#@ write_file -hierarchy -format ddc -out unmapped/wembley_88.ddc
+#@ list_designs
+#@ list_libs
+#@ check_design > ../../reports/check_design
+#@ 
+#@ report_timing -max_paths 20 -delay_type max  > ../../reports/report_timing_before_con_max
+#@ source ../../inputs/my_constraints.con
+#@ # -- Starting source ../../inputs/my_constraints.con
+
+#@ # Clear Previous Runs
+#@ reset_design
+#@ 
+#@ # -------------------------------------------------
+#@ # Clock Generation
+#@ # -------------------------------------------------
+#@ create_clock -name "clk" -period 0.8 [get_ports clk]
+#@ Input delay     0.1                  [all_clocks]
+#@ output delay    0.1                  [all_clocks]
+#@ 
+#@ # # Values to Consider: Below
+#@ set_clock_uncertainty   0.004         [all_clocks] 
+#@ set_clock_transition    0.003         [all_clocks]
+#@ # -------------------------------------------------
+#@ 
+#@ # -------------------------------------------------
+#@ # Design Rules ?
+#@ # -------------------------------------------------
+#@ # set_max_capacitance  < TODO ? >
+#@ # set_min_capacitance  < TODO ? >
+#@ # set_max_transition   < TODO ? >
+#@ # set_max_fanout       < TODO ? >
+#@ # -------------------------------------------------
+#@ 
+#@ # -------------------------------------------------
+#@ # False Pathes
+#@ # -------------------------------------------------
+#@ set_false_path -through [get_pins eric/regA/q_reg[0]] 
+#@ set_false_path -through [get_pins eric/regA/q_reg[1]] 
+#@ set_false_path -through [get_pins eric/regA/q_reg[2]] 
+#@ #  set_false_path -from [get_pins eric_clapton/???]
+#@ # -------------------------------------------------
+#@ # -- End source ../../inputs/my_constraints.con
+
+#@ report_timing -max_paths 20 -delay_type max  > ../../reports/report_timing_after_con_max
+#@ 
+#@ compile_ultra
+#@ #compile_ultra -no_autoungroup
+#@ 
+#@ report_timing -max_paths 20 -delay_type max > ../../reports/report_timing_after_compile_ultra
+#@ report_constraint -all > ../../reports/report_constraint
+#@ report_area > ../../reports/report_area
+#@ 
+#@ write_file -hierarchy -format ddc -output mapped/wembley_88.ddc
+#@ 
+#@ 
+#@ 
+#@ # -- End source ../../scripts/syn_flow.tcl
+
+exit

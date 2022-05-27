@@ -1,0 +1,547 @@
+Information: Updating design information... (UID-85)
+ 
+****************************************
+Report : timing
+        -path full
+        -delay max
+        -max_paths 20
+Design : wembley_88
+Version: S-2021.06-SP5
+Date   : Fri May 27 13:38:11 2022
+****************************************
+
+Operating Conditions: ss0p75v125c   Library: saed32hvt_ss0p75v125c
+Wire Load Model Mode: enclosed
+
+  Startpoint: sultan/regB/q_reg[0]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: eric/regB/q_reg[3]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  wembley_88         8000                  saed32hvt_ss0p75v125c
+  dire_straits       ForQA                 saed32hvt_ss0p75v125c
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  sultan/regB/q_reg[0]/CLK (DFFX1_LVT)                    0.00       0.00 r
+  sultan/regB/q_reg[0]/Q (DFFX1_LVT)                      0.20       0.20 r
+  sultan/regB/q[0] (reg4_4)                               0.00       0.20 r
+  sultan/Bo[0] (sultans_of_swing)                         0.00       0.20 r
+  dire/B_out[0] (dire_straits)                            0.00       0.20 r
+  dire/U17/Y (AND2X1_LVT)                                 0.21       0.41 r
+  dire/intadd_3/U4/CO (FADDX1_LVT)                        0.16       0.57 r
+  dire/intadd_3/U3/CO (FADDX1_LVT)                        0.16       0.73 r
+  dire/U15/CO (FADDX1_LVT)                                0.16       0.90 r
+  dire/U14/Y (NBUFFX2_LVT)                                0.15       1.04 r
+  dire/U12/Y (XOR2X2_LVT)                                 0.26       1.30 f
+  dire/B_e[3] (dire_straits)                              0.00       1.30 f
+  eric/B_e[3] (eric_clapton)                              0.00       1.30 f
+  eric/regB/d[3] (reg4_1)                                 0.00       1.30 f
+  eric/regB/q_reg[3]/RSTB (DFFSSRX1_LVT)                  0.02       1.32 f
+  data arrival time                                                  1.32
+
+  clock clk (rise edge)                                   0.80       0.80
+  clock network delay (ideal)                             0.00       0.80
+  clock uncertainty                                       0.00       0.80
+  eric/regB/q_reg[3]/CLK (DFFSSRX1_LVT)                   0.00       0.80 r
+  library setup time                                     -0.17       0.63
+  data required time                                                 0.63
+  --------------------------------------------------------------------------
+  data required time                                                 0.63
+  data arrival time                                                 -1.32
+  --------------------------------------------------------------------------
+  slack (VIOLATED)                                                  -0.68
+
+
+  Startpoint: sultan/regB/q_reg[0]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: eric/regB/q_reg[2]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  wembley_88         8000                  saed32hvt_ss0p75v125c
+  dire_straits       ForQA                 saed32hvt_ss0p75v125c
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  sultan/regB/q_reg[0]/CLK (DFFX1_LVT)                    0.00       0.00 r
+  sultan/regB/q_reg[0]/Q (DFFX1_LVT)                      0.20       0.20 r
+  sultan/regB/q[0] (reg4_4)                               0.00       0.20 r
+  sultan/Bo[0] (sultans_of_swing)                         0.00       0.20 r
+  dire/B_out[0] (dire_straits)                            0.00       0.20 r
+  dire/U17/Y (AND2X1_LVT)                                 0.21       0.41 r
+  dire/intadd_3/U4/CO (FADDX1_LVT)                        0.16       0.57 r
+  dire/intadd_3/U3/CO (FADDX1_LVT)                        0.16       0.73 r
+  dire/U15/CO (FADDX1_LVT)                                0.16       0.90 r
+  dire/U13/Y (NBUFFX2_LVT)                                0.15       1.04 r
+  dire/U11/Y (XOR2X2_LVT)                                 0.26       1.30 f
+  dire/B_e[2] (dire_straits)                              0.00       1.30 f
+  eric/B_e[2] (eric_clapton)                              0.00       1.30 f
+  eric/regB/d[2] (reg4_1)                                 0.00       1.30 f
+  eric/regB/q_reg[2]/RSTB (DFFSSRX1_LVT)                  0.02       1.32 f
+  data arrival time                                                  1.32
+
+  clock clk (rise edge)                                   0.80       0.80
+  clock network delay (ideal)                             0.00       0.80
+  clock uncertainty                                       0.00       0.80
+  eric/regB/q_reg[2]/CLK (DFFSSRX1_LVT)                   0.00       0.80 r
+  library setup time                                     -0.17       0.63
+  data required time                                                 0.63
+  --------------------------------------------------------------------------
+  data required time                                                 0.63
+  data arrival time                                                 -1.32
+  --------------------------------------------------------------------------
+  slack (VIOLATED)                                                  -0.68
+
+
+  Startpoint: sultan/regB/q_reg[0]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: eric/regB/q_reg[1]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  wembley_88         8000                  saed32hvt_ss0p75v125c
+  dire_straits       ForQA                 saed32hvt_ss0p75v125c
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  sultan/regB/q_reg[0]/CLK (DFFX1_LVT)                    0.00       0.00 r
+  sultan/regB/q_reg[0]/Q (DFFX1_LVT)                      0.20       0.20 r
+  sultan/regB/q[0] (reg4_4)                               0.00       0.20 r
+  sultan/Bo[0] (sultans_of_swing)                         0.00       0.20 r
+  dire/B_out[0] (dire_straits)                            0.00       0.20 r
+  dire/U17/Y (AND2X1_LVT)                                 0.21       0.41 r
+  dire/intadd_3/U4/CO (FADDX1_LVT)                        0.16       0.57 r
+  dire/intadd_3/U3/CO (FADDX1_LVT)                        0.16       0.73 r
+  dire/U15/CO (FADDX1_LVT)                                0.16       0.90 r
+  dire/U13/Y (NBUFFX2_LVT)                                0.15       1.04 r
+  dire/U10/Y (XOR2X2_LVT)                                 0.26       1.30 f
+  dire/B_e[1] (dire_straits)                              0.00       1.30 f
+  eric/B_e[1] (eric_clapton)                              0.00       1.30 f
+  eric/regB/d[1] (reg4_1)                                 0.00       1.30 f
+  eric/regB/q_reg[1]/RSTB (DFFSSRX1_LVT)                  0.02       1.32 f
+  data arrival time                                                  1.32
+
+  clock clk (rise edge)                                   0.80       0.80
+  clock network delay (ideal)                             0.00       0.80
+  clock uncertainty                                       0.00       0.80
+  eric/regB/q_reg[1]/CLK (DFFSSRX1_LVT)                   0.00       0.80 r
+  library setup time                                     -0.17       0.63
+  data required time                                                 0.63
+  --------------------------------------------------------------------------
+  data required time                                                 0.63
+  data arrival time                                                 -1.32
+  --------------------------------------------------------------------------
+  slack (VIOLATED)                                                  -0.68
+
+
+  Startpoint: sultan/regB/q_reg[0]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: eric/regB/q_reg[0]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  wembley_88         8000                  saed32hvt_ss0p75v125c
+  dire_straits       ForQA                 saed32hvt_ss0p75v125c
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  sultan/regB/q_reg[0]/CLK (DFFX1_LVT)                    0.00       0.00 r
+  sultan/regB/q_reg[0]/Q (DFFX1_LVT)                      0.20       0.20 r
+  sultan/regB/q[0] (reg4_4)                               0.00       0.20 r
+  sultan/Bo[0] (sultans_of_swing)                         0.00       0.20 r
+  dire/B_out[0] (dire_straits)                            0.00       0.20 r
+  dire/U17/Y (AND2X1_LVT)                                 0.21       0.41 r
+  dire/intadd_3/U4/CO (FADDX1_LVT)                        0.16       0.57 r
+  dire/intadd_3/U3/CO (FADDX1_LVT)                        0.16       0.73 r
+  dire/U15/CO (FADDX1_LVT)                                0.16       0.90 r
+  dire/U14/Y (NBUFFX2_LVT)                                0.15       1.04 r
+  dire/U9/Y (XOR2X2_LVT)                                  0.26       1.30 f
+  dire/B_e[0] (dire_straits)                              0.00       1.30 f
+  eric/B_e[0] (eric_clapton)                              0.00       1.30 f
+  eric/regB/d[0] (reg4_1)                                 0.00       1.30 f
+  eric/regB/q_reg[0]/RSTB (DFFSSRX1_LVT)                  0.02       1.32 f
+  data arrival time                                                  1.32
+
+  clock clk (rise edge)                                   0.80       0.80
+  clock network delay (ideal)                             0.00       0.80
+  clock uncertainty                                       0.00       0.80
+  eric/regB/q_reg[0]/CLK (DFFSSRX1_LVT)                   0.00       0.80 r
+  library setup time                                     -0.17       0.63
+  data required time                                                 0.63
+  --------------------------------------------------------------------------
+  data required time                                                 0.63
+  data arrival time                                                 -1.32
+  --------------------------------------------------------------------------
+  slack (VIOLATED)                                                  -0.68
+
+
+  Startpoint: sultan/regB/q_reg[0]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: eric/regA/q_reg[3]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  wembley_88         8000                  saed32hvt_ss0p75v125c
+  dire_straits       ForQA                 saed32hvt_ss0p75v125c
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  sultan/regB/q_reg[0]/CLK (DFFX1_LVT)                    0.00       0.00 r
+  sultan/regB/q_reg[0]/Q (DFFX1_LVT)                      0.20       0.20 f
+  sultan/regB/q[0] (reg4_4)                               0.00       0.20 f
+  sultan/Bo[0] (sultans_of_swing)                         0.00       0.20 f
+  dire/B_out[0] (dire_straits)                            0.00       0.20 f
+  dire/U17/Y (AND2X1_LVT)                                 0.21       0.41 f
+  dire/intadd_3/U4/CO (FADDX1_LVT)                        0.15       0.56 f
+  dire/intadd_3/U3/CO (FADDX1_LVT)                        0.16       0.72 f
+  dire/U15/S (FADDX1_LVT)                                 0.24       0.96 r
+  dire/A_e[3] (dire_straits)                              0.00       0.96 r
+  eric/A_e[3] (eric_clapton)                              0.00       0.96 r
+  eric/regA/d[3] (reg4_2)                                 0.00       0.96 r
+  eric/regA/q_reg[3]/RSTB (DFFSSRX1_LVT)                  0.02       0.98 r
+  data arrival time                                                  0.98
+
+  clock clk (rise edge)                                   0.80       0.80
+  clock network delay (ideal)                             0.00       0.80
+  clock uncertainty                                       0.00       0.80
+  eric/regA/q_reg[3]/CLK (DFFSSRX1_LVT)                   0.00       0.80 r
+  library setup time                                     -0.17       0.62
+  data required time                                                 0.62
+  --------------------------------------------------------------------------
+  data required time                                                 0.62
+  data arrival time                                                 -0.98
+  --------------------------------------------------------------------------
+  slack (VIOLATED)                                                  -0.36
+
+
+  Startpoint: sultan/regB/q_reg[0]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: eric/regA/q_reg[0]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  wembley_88         8000                  saed32hvt_ss0p75v125c
+  dire_straits       ForQA                 saed32hvt_ss0p75v125c
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  sultan/regB/q_reg[0]/CLK (DFFX1_LVT)                    0.00       0.00 r
+  sultan/regB/q_reg[0]/Q (DFFX1_LVT)                      0.20       0.20 r
+  sultan/regB/q[0] (reg4_4)                               0.00       0.20 r
+  sultan/Bo[0] (sultans_of_swing)                         0.00       0.20 r
+  dire/B_out[0] (dire_straits)                            0.00       0.20 r
+  dire/U5/Y (DELLN1X2_LVT)                                0.45       0.65 r
+  dire/U7/Y (NBUFFX2_LVT)                                 0.08       0.73 r
+  dire/U16/Y (XOR2X1_LVT)                                 0.19       0.92 f
+  dire/A_e[0] (dire_straits)                              0.00       0.92 f
+  eric/A_e[0] (eric_clapton)                              0.00       0.92 f
+  eric/regA/d[0] (reg4_2)                                 0.00       0.92 f
+  eric/regA/q_reg[0]/RSTB (DFFSSRX1_LVT)                  0.02       0.94 f
+  data arrival time                                                  0.94
+
+  clock clk (rise edge)                                   0.80       0.80
+  clock network delay (ideal)                             0.00       0.80
+  clock uncertainty                                       0.00       0.80
+  eric/regA/q_reg[0]/CLK (DFFSSRX1_LVT)                   0.00       0.80 r
+  library setup time                                     -0.17       0.63
+  data required time                                                 0.63
+  --------------------------------------------------------------------------
+  data required time                                                 0.63
+  data arrival time                                                 -0.94
+  --------------------------------------------------------------------------
+  slack (VIOLATED)                                                  -0.31
+
+
+  Startpoint: sultan/regA/q_reg[0]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: eric/regC/q_reg[0]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  wembley_88         8000                  saed32hvt_ss0p75v125c
+  sultans_of_swing   ForQA                 saed32hvt_ss0p75v125c
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  sultan/regA/q_reg[0]/CLK (DFFX1_LVT)                    0.00       0.00 r
+  sultan/regA/q_reg[0]/Q (DFFX1_LVT)                      0.20       0.20 r
+  sultan/regA/q[0] (reg4_5)                               0.00       0.20 r
+  sultan/U1/Y (NBUFFX2_LVT)                               0.19       0.40 r
+  sultan/U7/Y (XNOR2X1_LVT)                               0.18       0.58 f
+  sultan/U3/Y (NOR2X0_LVT)                                0.15       0.73 r
+  sultan/ANDo[0] (sultans_of_swing)                       0.00       0.73 r
+  dire/AND_out[0] (dire_straits)                          0.00       0.73 r
+  dire/U1/Y (INVX0_LVT)                                   0.13       0.86 f
+  dire/C_e[0] (dire_straits)                              0.00       0.86 f
+  eric/C_e[0] (eric_clapton)                              0.00       0.86 f
+  eric/regC/d[0] (reg4_0)                                 0.00       0.86 f
+  eric/regC/q_reg[0]/RSTB (DFFSSRX1_LVT)                  0.02       0.87 f
+  data arrival time                                                  0.87
+
+  clock clk (rise edge)                                   0.80       0.80
+  clock network delay (ideal)                             0.00       0.80
+  clock uncertainty                                       0.00       0.80
+  eric/regC/q_reg[0]/CLK (DFFSSRX1_LVT)                   0.00       0.80 r
+  library setup time                                     -0.16       0.64
+  data required time                                                 0.64
+  --------------------------------------------------------------------------
+  data required time                                                 0.64
+  data arrival time                                                 -0.87
+  --------------------------------------------------------------------------
+  slack (VIOLATED)                                                  -0.23
+
+
+  Startpoint: sultan/regB/q_reg[0]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: eric/regA/q_reg[2]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  wembley_88         8000                  saed32hvt_ss0p75v125c
+  dire_straits       ForQA                 saed32hvt_ss0p75v125c
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  sultan/regB/q_reg[0]/CLK (DFFX1_LVT)                    0.00       0.00 r
+  sultan/regB/q_reg[0]/Q (DFFX1_LVT)                      0.20       0.20 f
+  sultan/regB/q[0] (reg4_4)                               0.00       0.20 f
+  sultan/Bo[0] (sultans_of_swing)                         0.00       0.20 f
+  dire/B_out[0] (dire_straits)                            0.00       0.20 f
+  dire/U17/Y (AND2X1_LVT)                                 0.21       0.41 f
+  dire/intadd_3/U4/CO (FADDX1_LVT)                        0.15       0.56 f
+  dire/intadd_3/U3/S (FADDX1_LVT)                         0.24       0.80 r
+  dire/A_e[2] (dire_straits)                              0.00       0.80 r
+  eric/A_e[2] (eric_clapton)                              0.00       0.80 r
+  eric/regA/d[2] (reg4_2)                                 0.00       0.80 r
+  eric/regA/q_reg[2]/RSTB (DFFSSRX1_LVT)                  0.02       0.82 r
+  data arrival time                                                  0.82
+
+  clock clk (rise edge)                                   0.80       0.80
+  clock network delay (ideal)                             0.00       0.80
+  clock uncertainty                                       0.00       0.80
+  eric/regA/q_reg[2]/CLK (DFFSSRX1_LVT)                   0.00       0.80 r
+  library setup time                                     -0.17       0.62
+  data required time                                                 0.62
+  --------------------------------------------------------------------------
+  data required time                                                 0.62
+  data arrival time                                                 -0.82
+  --------------------------------------------------------------------------
+  slack (VIOLATED)                                                  -0.20
+
+
+  Startpoint: sultan/regB/q_reg[3]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: eric/regC/q_reg[3]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  wembley_88         8000                  saed32hvt_ss0p75v125c
+  sultans_of_swing   ForQA                 saed32hvt_ss0p75v125c
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  sultan/regB/q_reg[3]/CLK (DFFX1_LVT)                    0.00       0.00 r
+  sultan/regB/q_reg[3]/Q (DFFX1_LVT)                      0.22       0.22 r
+  sultan/regB/q[3] (reg4_4)                               0.00       0.22 r
+  sultan/U6/Y (XNOR2X1_LVT)                               0.32       0.54 f
+  sultan/U10/Y (NOR2X0_LVT)                               0.15       0.69 r
+  sultan/ANDo[3] (sultans_of_swing)                       0.00       0.69 r
+  dire/AND_out[3] (dire_straits)                          0.00       0.69 r
+  dire/U2/Y (INVX0_LVT)                                   0.13       0.81 f
+  dire/C_e[3] (dire_straits)                              0.00       0.81 f
+  eric/C_e[3] (eric_clapton)                              0.00       0.81 f
+  eric/regC/d[3] (reg4_0)                                 0.00       0.81 f
+  eric/regC/q_reg[3]/RSTB (DFFSSRX1_LVT)                  0.02       0.83 f
+  data arrival time                                                  0.83
+
+  clock clk (rise edge)                                   0.80       0.80
+  clock network delay (ideal)                             0.00       0.80
+  clock uncertainty                                       0.00       0.80
+  eric/regC/q_reg[3]/CLK (DFFSSRX1_LVT)                   0.00       0.80 r
+  library setup time                                     -0.16       0.64
+  data required time                                                 0.64
+  --------------------------------------------------------------------------
+  data required time                                                 0.64
+  data arrival time                                                 -0.83
+  --------------------------------------------------------------------------
+  slack (VIOLATED)                                                  -0.19
+
+
+  Startpoint: sultan/regB/q_reg[2]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: eric/regC/q_reg[2]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  wembley_88         8000                  saed32hvt_ss0p75v125c
+  sultans_of_swing   ForQA                 saed32hvt_ss0p75v125c
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  sultan/regB/q_reg[2]/CLK (DFFX1_LVT)                    0.00       0.00 r
+  sultan/regB/q_reg[2]/Q (DFFX1_LVT)                      0.22       0.22 r
+  sultan/regB/q[2] (reg4_4)                               0.00       0.22 r
+  sultan/U5/Y (XNOR2X1_LVT)                               0.32       0.54 f
+  sultan/U9/Y (NOR2X0_LVT)                                0.15       0.69 r
+  sultan/ANDo[2] (sultans_of_swing)                       0.00       0.69 r
+  dire/AND_out[2] (dire_straits)                          0.00       0.69 r
+  dire/U4/Y (INVX0_LVT)                                   0.13       0.81 f
+  dire/C_e[2] (dire_straits)                              0.00       0.81 f
+  eric/C_e[2] (eric_clapton)                              0.00       0.81 f
+  eric/regC/d[2] (reg4_0)                                 0.00       0.81 f
+  eric/regC/q_reg[2]/RSTB (DFFSSRX1_LVT)                  0.02       0.83 f
+  data arrival time                                                  0.83
+
+  clock clk (rise edge)                                   0.80       0.80
+  clock network delay (ideal)                             0.00       0.80
+  clock uncertainty                                       0.00       0.80
+  eric/regC/q_reg[2]/CLK (DFFSSRX1_LVT)                   0.00       0.80 r
+  library setup time                                     -0.16       0.64
+  data required time                                                 0.64
+  --------------------------------------------------------------------------
+  data required time                                                 0.64
+  data arrival time                                                 -0.83
+  --------------------------------------------------------------------------
+  slack (VIOLATED)                                                  -0.19
+
+
+  Startpoint: sultan/regB/q_reg[1]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: eric/regC/q_reg[1]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  wembley_88         8000                  saed32hvt_ss0p75v125c
+  sultans_of_swing   ForQA                 saed32hvt_ss0p75v125c
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  sultan/regB/q_reg[1]/CLK (DFFX1_LVT)                    0.00       0.00 r
+  sultan/regB/q_reg[1]/Q (DFFX1_LVT)                      0.22       0.22 r
+  sultan/regB/q[1] (reg4_4)                               0.00       0.22 r
+  sultan/U4/Y (XNOR2X1_LVT)                               0.32       0.54 f
+  sultan/U8/Y (NOR2X0_LVT)                                0.15       0.69 r
+  sultan/ANDo[1] (sultans_of_swing)                       0.00       0.69 r
+  dire/AND_out[1] (dire_straits)                          0.00       0.69 r
+  dire/U3/Y (INVX0_LVT)                                   0.13       0.81 f
+  dire/C_e[1] (dire_straits)                              0.00       0.81 f
+  eric/C_e[1] (eric_clapton)                              0.00       0.81 f
+  eric/regC/d[1] (reg4_0)                                 0.00       0.81 f
+  eric/regC/q_reg[1]/RSTB (DFFSSRX1_LVT)                  0.02       0.83 f
+  data arrival time                                                  0.83
+
+  clock clk (rise edge)                                   0.80       0.80
+  clock network delay (ideal)                             0.00       0.80
+  clock uncertainty                                       0.00       0.80
+  eric/regC/q_reg[1]/CLK (DFFSSRX1_LVT)                   0.00       0.80 r
+  library setup time                                     -0.16       0.64
+  data required time                                                 0.64
+  --------------------------------------------------------------------------
+  data required time                                                 0.64
+  data arrival time                                                 -0.83
+  --------------------------------------------------------------------------
+  slack (VIOLATED)                                                  -0.19
+
+
+  Startpoint: sultan/regB/q_reg[0]
+              (rising edge-triggered flip-flop clocked by clk)
+  Endpoint: eric/regA/q_reg[1]
+            (rising edge-triggered flip-flop clocked by clk)
+  Path Group: clk
+  Path Type: max
+
+  Des/Clust/Port     Wire Load Model       Library
+  ------------------------------------------------
+  wembley_88         8000                  saed32hvt_ss0p75v125c
+  dire_straits       ForQA                 saed32hvt_ss0p75v125c
+  reg4_2             ForQA                 saed32hvt_ss0p75v125c
+
+  Point                                                   Incr       Path
+  --------------------------------------------------------------------------
+  clock clk (rise edge)                                   0.00       0.00
+  clock network delay (ideal)                             0.00       0.00
+  sultan/regB/q_reg[0]/CLK (DFFX1_LVT)                    0.00       0.00 r
+  sultan/regB/q_reg[0]/Q (DFFX1_LVT)                      0.20       0.20 r
+  sultan/regB/q[0] (reg4_4)                               0.00       0.20 r
+  sultan/Bo[0] (sultans_of_swing)                         0.00       0.20 r
+  dire/B_out[0] (dire_straits)                            0.00       0.20 r
+  dire/U17/Y (AND2X1_LVT)                                 0.21       0.41 r
+  dire/intadd_3/U4/S (FADDX1_LVT)                         0.22       0.63 f
+  dire/A_e[1] (dire_straits)                              0.00       0.63 f
+  eric/A_e[1] (eric_clapton)                              0.00       0.63 f
+  eric/regA/d[1] (reg4_2)                                 0.00       0.63 f
+  eric/regA/U7/Y (AND2X1_LVT)                             0.10       0.72 f
+  eric/regA/q_reg[1]/D (DFFX1_LVT)                        0.01       0.74 f
+  data arrival time                                                  0.74
+
+  clock clk (rise edge)                                   0.80       0.80
+  clock network delay (ideal)                             0.00       0.80
+  clock uncertainty                                       0.00       0.80
+  eric/regA/q_reg[1]/CLK (DFFX1_LVT)                      0.00       0.80 r
+  library setup time                                     -0.08       0.72
+  data required time                                                 0.72
+  --------------------------------------------------------------------------
+  data required time                                                 0.72
+  data arrival time                                                 -0.74
+  --------------------------------------------------------------------------
+  slack (VIOLATED)                                                  -0.02
+
+
+1

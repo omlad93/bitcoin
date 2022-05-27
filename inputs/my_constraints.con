@@ -4,13 +4,13 @@ reset_design
 # -------------------------------------------------
 # Clock Generation
 # -------------------------------------------------
-create_clock -name "clk" -period 1 [get_ports clk]
-Input delay     0.1                [all_clocks]
-output delay    0.1                [all_clocks]
+create_clock -name "clk" -period 0.8 [get_ports clk]
+Input delay     0.1                  [all_clocks]
+output delay    0.1                  [all_clocks]
 
-# Values to Consider: Below
-set_clock_uncertainty   0.01       [all_clocks]
-set_clock_transition    0.03       [all_clocks]
+# # Values to Consider: Below
+set_clock_uncertainty   0.004         [all_clocks] 
+set_clock_transition    0.003         [all_clocks]
 # -------------------------------------------------
 
 # -------------------------------------------------
@@ -23,8 +23,10 @@ set_clock_transition    0.03       [all_clocks]
 # -------------------------------------------------
 
 # -------------------------------------------------
-# False Pathes ?
+# False Pathes
 # -------------------------------------------------
- # set_false_path -through [get_pins eric_clapton/???] 
- # set_false_path -through [get_pins eric_clapton/???]
+ set_false_path -through [get_pins eric/regA/q_reg[0]] 
+ set_false_path -through [get_pins eric/regA/q_reg[1]] 
+ set_false_path -through [get_pins eric/regA/q_reg[2]] 
+#  set_false_path -from [get_pins eric_clapton/???]
 # -------------------------------------------------
