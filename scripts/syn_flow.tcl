@@ -26,20 +26,25 @@ link
 write_file -hierarchy -format ddc -out unmapped/wembley_88.ddc
 list_designs
 list_libs
-check_design > ../../reports/check_design
+check_design -summary  -cells > ../../reports/check_design
 
-report_timing -max_paths 20 -delay_type max  > ../../reports/report_timing_before_con_max
+report_timing -capacitance -transition_time -max_paths 20 -delay_type max   > ../../reports/report_timing_before_con_max
+
 source ../../inputs/my_constraints.con
-report_timing -max_paths 20 -delay_type max  > ../../reports/report_timing_after_con_max
+report_timing -capacitance -transition_time -max_paths 20 -delay_type max  > ../../reports/report_timing_after_con_max
 
-compile_ultra
-#compile_ultra -no_autoungroup
+# compile_ultra
+compile_ultra -no_autoungroup
 
-report_timing -max_paths 20 -delay_type max > ../../reports/report_timing_after_compile_ultra
-report_constraint -all > ../../reports/report_constraint
-report_area > ../../reports/report_area
+report_timing -capacitance -transition_time -max_paths 20 -delay_type max > ../../reports/report_timing_after_compile_ultra
 
-write_file -hierarchy -format ddc -output mapped/wembley_88.ddc
+
+
+report_constraint -all_violators > ../../reports/report_constraint
+report_constraint > ../../reports/constraint_summary
+report_area -hierarchy -designware -physical -individual_site_def_util> ../../reports/report_area
+report_power > ../../reports/report_power
+write_file -hierarchy -format ddc -output mapped/swembley_88.ddc
 
 
 

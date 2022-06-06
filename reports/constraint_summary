@@ -1,0 +1,51 @@
+ 
+****************************************
+Report : constraint
+Design : wembley_88
+Version: S-2021.06-SP5
+Date   : Sat Jun  4 15:58:58 2022
+****************************************
+
+
+                                                   Weighted
+    Group (max_delay/setup)      Cost     Weight     Cost
+    -----------------------------------------------------
+    clk                          0.73      1.00      0.73
+    default                      0.00      1.00      0.00
+    -----------------------------------------------------
+    max_delay/setup                                  0.73
+
+                              Total Neg  Critical
+    Group (critical_range)      Slack    Endpoints   Cost
+    -----------------------------------------------------
+    clk                          5.89         1      0.73
+    default                      0.00         0      0.00
+    -----------------------------------------------------
+    critical_range                                   0.73
+
+                                                   Weighted
+    Group (min_delay/hold)       Cost     Weight     Cost
+    -----------------------------------------------------
+    clk (no fix_hold)            0.00      1.00      0.00
+    default                      0.00      1.00      0.00
+    -----------------------------------------------------
+    min_delay/hold                                   0.00
+    Constraint                                     Slack
+    ----------------------------------------------------
+    max_leakage_power                           -9099054.00
+                                                          (VIOLATED)
+
+
+    Constraint                                       Cost
+    -----------------------------------------------------
+    min_capacitance                                  0.00 (MET)
+    max_transition                                   0.00 (MET)
+    max_capacitance                                  0.00 (MET)
+    max_delay/setup                                  0.73 (VIOLATED)
+    sequential_clock_pulse_width                     0.00 (MET)
+    critical_range                                   0.73 (VIOLATED)
+    max_leakage_power                            9099054.00
+                                                          (VIOLATED)
+
+
+1

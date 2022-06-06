@@ -1,18 +1,4 @@
-Information: Changed wire load model for 'mux4to1_assign' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'mux4to1_primitives' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'mux4to1_always' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'reg1' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'reg4' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'reg4' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'reg4' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'eric_clapton' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'dire_straits' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'reg4' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'reg4' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'reg4' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'sultans_of_swing' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for 'DW01_add_width5' from '(none)' to 'ForQA'. (OPT-170)
-Information: Changed wire load model for '*ADD_UNS_OP_4_4_5' from '(none)' to 'ForQA'. (OPT-170)
+Information: Changed wire load model for 'wembley_88' from 'ForQA' to '8000'. (OPT-170)
 Information: Updating design information... (UID-85)
  
 ****************************************
@@ -20,33 +6,36 @@ Report : timing
         -path full
         -delay max
         -max_paths 20
+        -transition_time
+        -capacitance
 Design : wembley_88
 Version: S-2021.06-SP5
-Date   : Fri May 27 13:37:49 2022
+Date   : Sat Jun  4 15:58:03 2022
 ****************************************
 
 Operating Conditions: ss0p75v125c   Library: saed32hvt_ss0p75v125c
 Wire Load Model Mode: enclosed
 
-  Startpoint: eric/reg_out/q_reg
-              (rising edge-triggered flip-flop)
+  Startpoint: eric/reg_out/q_reg/CLK
+              (internal path startpoint)
   Endpoint: Yout (output port)
   Path Group: (none)
   Path Type: max
 
   Des/Clust/Port     Wire Load Model       Library
   ------------------------------------------------
-  wembley_88         ForQA                 saed32hvt_ss0p75v125c
+  wembley_88         8000                  saed32hvt_ss0p75v125c
 
-  Point                                                   Incr       Path
-  --------------------------------------------------------------------------
-  eric/reg_out/q_reg/clocked_on (**SEQGEN**)              0.00       0.00 r
-  eric/reg_out/q_reg/Q (**SEQGEN**)                       0.00       0.00 r
-  eric/reg_out/q (reg1)                                   0.00       0.00 r
-  eric/Yout (eric_clapton)                                0.00       0.00 r
-  Yout (out)                                              0.00       0.00 r
-  data arrival time                                                  0.00
-  --------------------------------------------------------------------------
+  Point                                          Cap     Trans      Incr       Path
+  ------------------------------------------------------------------------------------
+  input external delay                                              0.00       0.00 r
+  eric/reg_out/q_reg/CLK (DFFASRX1_LVT)                   0.00      0.00       0.00 r
+  eric/reg_out/q_reg/Q (DFFASRX1_LVT)           0.00      0.04      0.24       0.24 r
+  eric/reg_out/q (reg1)                                             0.00       0.24 r
+  eric/Yout (eric_clapton)                                          0.00       0.24 r
+  Yout (out)                                              0.04      0.00       0.24 r
+  data arrival time                                                            0.24
+  ------------------------------------------------------------------------------------
   (Path is unconstrained)
 
 

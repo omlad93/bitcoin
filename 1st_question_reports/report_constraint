@@ -4,7 +4,7 @@ Report : constraint
         -all_violators
 Design : wembley_88
 Version: S-2021.06-SP5
-Date   : Fri May 27 13:38:11 2022
+Date   : Sat Jun  4 15:58:58 2022
 ****************************************
 
 
@@ -13,18 +13,18 @@ Date   : Fri May 27 13:38:11 2022
                              Required        Actual
    Endpoint                 Path Delay     Path Delay        Slack
    -----------------------------------------------------------------
-   eric/regB/q_reg[0]/RSTB      0.63           1.32 f        -0.68  (VIOLATED)
-   eric/regB/q_reg[1]/RSTB      0.63           1.32 f        -0.68  (VIOLATED)
-   eric/regB/q_reg[2]/RSTB      0.63           1.32 f        -0.68  (VIOLATED)
-   eric/regB/q_reg[3]/RSTB      0.63           1.32 f        -0.68  (VIOLATED)
-   eric/regA/q_reg[3]/RSTB      0.62           0.98 r        -0.36  (VIOLATED)
-   eric/regA/q_reg[0]/RSTB      0.63           0.94 f        -0.31  (VIOLATED)
-   eric/regC/q_reg[0]/RSTB      0.64           0.87 f        -0.23  (VIOLATED)
-   eric/regA/q_reg[2]/RSTB      0.62           0.82 r        -0.20  (VIOLATED)
-   eric/regC/q_reg[1]/RSTB      0.64           0.83 f        -0.19  (VIOLATED)
-   eric/regC/q_reg[2]/RSTB      0.64           0.83 f        -0.19  (VIOLATED)
-   eric/regC/q_reg[3]/RSTB      0.64           0.83 f        -0.19  (VIOLATED)
-   eric/regA/q_reg[1]/D         0.72           0.74 f        -0.02  (VIOLATED)
+   eric/regB/q_reg[0]/D         0.72           1.45 f        -0.73  (VIOLATED)
+   eric/regB/q_reg[3]/RSTB      0.63           1.35 r        -0.72  (VIOLATED)
+   eric/regB/q_reg[1]/D         0.72           1.42 f        -0.71  (VIOLATED)
+   eric/regB/q_reg[2]/D         0.72           1.42 f        -0.71  (VIOLATED)
+   eric/regA/q_reg[1]/RSTB      0.62           1.12 f        -0.50  (VIOLATED)
+   eric/regA/q_reg[3]/RSTB      0.62           1.11 f        -0.49  (VIOLATED)
+   eric/regA/q_reg[2]/RSTB      0.62           1.11 r        -0.49  (VIOLATED)
+   eric/regC/q_reg[1]/RSTB      0.63           1.07 r        -0.44  (VIOLATED)
+   eric/regC/q_reg[2]/RSTB      0.64           1.02 f        -0.38  (VIOLATED)
+   eric/regC/q_reg[3]/D         0.72           1.07 f        -0.36  (VIOLATED)
+   eric/regC/q_reg[0]/D         0.72           0.92 f        -0.21  (VIOLATED)
+   eric/regA/q_reg[0]/RSTB      0.63           0.79 r        -0.16  (VIOLATED)
 
 
    max_leakage_power
@@ -32,7 +32,7 @@ Date   : Fri May 27 13:38:11 2022
                              Required        Actual
    Design                   Leakage Power  Leakage Power     Slack
    -----------------------------------------------------------------
-   wembley_88                   0.00       7605320.00     -7605320.00
+   wembley_88                   0.00       9099054.00     -9099054.00
                                                                     (VIOLATED)
 
 

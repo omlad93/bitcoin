@@ -2,7 +2,7 @@
 ****************************************
 check_design summary:
 Version:     S-2021.06-SP5
-Date:        Fri May 27 13:51:39 2022
+Date:        Sat Jun  4 15:58:03 2022
 ****************************************
 
                    Name                                            Total
@@ -11,8 +11,7 @@ Cells                                                               2
     Connected to power or ground (LINT-32)                          2
 --------------------------------------------------------------------------------
 
-Warning: In design 'eric_clapton', a pin on submodule 'mux4to1_assign' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'a[3]' is connected to logic 1. 
-Warning: In design 'eric_clapton', a pin on submodule 'mux4to1_assign' is connected to logic 1 or logic 0. (LINT-32)
-   Pin 'a[2]' is connected to logic 0. 
+Information: Use the 'check_design' command for 
+	 more information about warnings. (LINT-98)
+
 1

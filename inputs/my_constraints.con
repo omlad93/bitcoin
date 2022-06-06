@@ -8,7 +8,7 @@ create_clock -name "clk" -period 0.8 [get_ports clk]
 Input delay     0.1                  [all_clocks]
 output delay    0.1                  [all_clocks]
 
-# # Values to Consider: Below
+# Values to Consider: Below
 set_clock_uncertainty   0.004         [all_clocks] 
 set_clock_transition    0.003         [all_clocks]
 # -------------------------------------------------
@@ -16,10 +16,11 @@ set_clock_transition    0.003         [all_clocks]
 # -------------------------------------------------
 # Design Rules ?
 # -------------------------------------------------
- # set_max_capacitance  < TODO ? >
+ set_max_capacitance  0.1             [all_ports]
+        # High Capacitance -> Bad Timing!
  # set_min_capacitance  < TODO ? >
- # set_max_transition   < TODO ? >
- # set_max_fanout       < TODO ? >
+#  set_max_transition   0.04
+ set_max_fanout       4               [all_ports]
 # -------------------------------------------------
 
 # -------------------------------------------------

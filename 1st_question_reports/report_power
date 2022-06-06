@@ -1,0 +1,67 @@
+ 
+****************************************
+Report : power
+        -analysis_effort low
+Design : wembley_88
+Version: S-2021.06-SP5
+Date   : Sat Jun  4 15:58:58 2022
+****************************************
+
+
+Library(s) Used:
+
+    saed32lvt_ss0p75v125c (File: /project/advvlsi/users/omri/ws/pro_1/project_root/libraries/syn_libs/saed32lvt_ss0p75v125c.db)
+    saed32rvt_ss0p75v125c (File: /project/advvlsi/users/omri/ws/pro_1/project_root/libraries/syn_libs/saed32rvt_ss0p75v125c.db)
+
+
+Operating Conditions: ss0p75v125c   Library: saed32hvt_ss0p75v125c
+Wire Load Model Mode: enclosed
+
+Design        Wire Load Model            Library
+------------------------------------------------
+wembley_88             8000              saed32hvt_ss0p75v125c
+sultans_of_swing       ForQA             saed32hvt_ss0p75v125c
+dire_straits           ForQA             saed32hvt_ss0p75v125c
+eric_clapton           ForQA             saed32hvt_ss0p75v125c
+reg4_5                 ForQA             saed32hvt_ss0p75v125c
+reg4_3                 ForQA             saed32hvt_ss0p75v125c
+reg4_2                 ForQA             saed32hvt_ss0p75v125c
+reg4_1                 ForQA             saed32hvt_ss0p75v125c
+reg1                   ForQA             saed32hvt_ss0p75v125c
+mux4to1_always         ForQA             saed32hvt_ss0p75v125c
+mux4to1_primitives     ForQA             saed32hvt_ss0p75v125c
+mux4to1_assign         ForQA             saed32hvt_ss0p75v125c
+reg4_4                 ForQA             saed32hvt_ss0p75v125c
+reg4_0                 ForQA             saed32hvt_ss0p75v125c
+
+
+Global Operating Voltage = 0.75 
+Power-specific unit information :
+    Voltage Units = 1V
+    Capacitance Units = 1.000000ff
+    Time Units = 1ns
+    Dynamic Power Units = 1uW    (derived from V,C,T units)
+    Leakage Power Units = 1pW
+
+
+  Cell Internal Power  = 132.9339 uW   (96%)
+  Net Switching Power  =   5.2852 uW    (4%)
+                         ---------
+Total Dynamic Power    = 138.2191 uW  (100%)
+
+Cell Leakage Power     =   9.8962 uW
+
+
+                 Internal         Switching           Leakage            Total
+Power Group      Power            Power               Power              Power   (   %    )  Attrs
+--------------------------------------------------------------------------------------------------
+io_pad             0.0000            0.0000            0.0000            0.0000  (   0.00%)
+memory             0.0000            0.0000            0.0000            0.0000  (   0.00%)
+black_box          0.0000            0.0000            0.0000            0.0000  (   0.00%)
+clock_network      0.0000            0.0000            0.0000            0.0000  (   0.00%)
+register         119.5690            1.3722        3.7966e+06          124.7378  (  84.22%)
+sequential         0.0000            0.0000            0.0000            0.0000  (   0.00%)
+combinational     13.3649            3.9130        6.0996e+06           23.3775  (  15.78%)
+--------------------------------------------------------------------------------------------------
+Total            132.9339 uW         5.2852 uW     9.8962e+06 pW       148.1153 uW
+1
